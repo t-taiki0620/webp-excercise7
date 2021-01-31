@@ -100,19 +100,19 @@ EvilCircle.prototype.draw = function(){
 
 EvilCircle.prototype.checkBounds = function() {
   if((this.x + this.size) >= width) {
-    this.x = -(this.size);
+    this.x -= this.size;
   }
 
   if((this.x - this.size) <= 0) {
-    this.x = -(this.size);
+    this.x += this.size;
   }
 
   if((this.y + this.size) >= height) {
-    this.y = -(this.size);
+    this.y -= this.size;
   }
 
   if((this.y - this.size) <= 0) {
-    this.y = -(this.size);
+    this.y += this.size;
   }
 };
 
@@ -157,9 +157,9 @@ while(balls.length < 25) {
     // away from the adge of the canvas, to avoid drawing errors
     random(0 + size,width - size),
     random(0 + size,height - size),
+    random(-7,7),
+    random(-7,7),
     true,
-    random(-7,7),
-    random(-7,7),
     'rgb(' + random(0,255) + ',' + random(0,255) + ',' + random(0,255) +')',
     size
   );
